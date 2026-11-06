@@ -31,7 +31,7 @@ public class PlayFabLogin : MonoBehaviour
 
     public void SignIn()
     {
-        PlayFabClientAPI.RegisterPlayFab(new LoginWithPlayFabUserRequest
+        PlayFabClientAPI.LoginWithPlayFab(new LoginWithPlayFabRequest
         {
             Username = usernameInputField.text,
             Password = passwordInputField.text
