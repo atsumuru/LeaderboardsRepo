@@ -14,11 +14,34 @@ public class PlayFabLogin : MonoBehaviour
 
     public void CreateAccount()
     {
-
+        PlayFabClientAPI.RegisterPlayFabUser(new RegisterPlayFabUserRequest
+        {
+            Username = usernameInputField.text,
+            Email = emailInputField.text,
+            Password = passwordInputField.text
+        }, result =>
+        {
+            SessionTicket = result.SessionTicket;
+            signInDisplay.SetActive(false);
+        }, error => 
+        {
+            Debug.LogError(error.GenerateErrorReport());
+        });
     }
 
     public void SignIn()
     {
-
+        PlayFabClientAPI.RegisterPlayFab(new LoginWithPlayFabUserRequest
+        {
+            Username = usernameInputField.text,
+            Password = passwordInputField.text
+        }, result =>
+        {
+            SessionTicket = result.SessionTicket;
+            signInDisplay.SetActive(false);
+        }, error => 
+        {
+            Debug.LogError(error.GenerateErrorReport());
+        });
     }
 }
